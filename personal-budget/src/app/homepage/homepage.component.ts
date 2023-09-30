@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Chart } from 'chart.js/auto';
-import * as d3 from 'd3';
 
 @Component({
   selector: 'pb-homepage',
@@ -27,6 +26,9 @@ export class HomepageComponent implements AfterViewInit{
     ],
     labels: []
   };
+
+
+
   constructor(private http: HttpClient){
   }
 
@@ -38,8 +40,7 @@ export class HomepageComponent implements AfterViewInit{
         this.dataSource.datasets[0].data.push(res.budget[i].budget);
     }
     this.createChart();
-    // this.createD3Chart();
-    this.myD3Chart();
+    // this.myD3Chart();
     });
   }
 
@@ -53,24 +54,27 @@ export class HomepageComponent implements AfterViewInit{
     });
   }
 
-  //function to create doughnut chart
-  myD3Chart() {
-    var chart = document.getElementById("chartId") as HTMLCanvasElement;
-    var chartId = new Chart(chart, {
-      type: "doughnut",
-      data: {
-        labels: this.dataSource.labels,
-        datasets: [
-          {
-            data: this.dataSource.datasets[0].data,
-            backgroundColor: this.dataSource.datasets[0].backgroundColor,
-            hoverOffset: 5,
-          },
-        ],
-      },
-      options: {
-        responsive: false,
-      },
-    });
-  }
+  // Function to create a donut chart using D3.js
+
+
+//   //function to create doughnut chart
+//   myD3Chart() {
+//     var chart = document.getElementById("chartId") as HTMLCanvasElement;
+//     var chartId = new Chart(chart, {
+//       type: "doughnut",
+//       data: {
+//         labels: this.dataSource.labels,
+//         datasets: [
+//           {
+//             data: this.dataSource.datasets[0].data,
+//             backgroundColor: this.dataSource.datasets[0].backgroundColor,
+//             hoverOffset: 5,
+//           },
+//         ],
+//       },
+//       options: {
+//         responsive: false,
+//       },
+//     });
+//   }
 }

@@ -16,6 +16,7 @@ import { P404Component } from './p404/p404.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ContactComponent } from './contact/contact.component';
 import { DataService } from './data.service';
+import { D3DonutChartComponent } from './d3-donut-chart/d3-donut-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DataService } from './data.service';
     LoginComponent,
     P404Component,
     BreadcrumbsComponent,
-    ContactComponent
+    ContactComponent,
+    D3DonutChartComponent
   ],
   imports: [
     BrowserModule,
